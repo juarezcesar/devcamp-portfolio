@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
-    @portfolio_items = Portfolio.all  
+    @portfolio_items = Portfolio.all
   end
 
   def new
@@ -38,11 +38,11 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-     @portfolio = Portfolio.find(params[:id])     
+     @portfolio = Portfolio.find(params[:id])
   end
 
   def destroy
-    @portfolio = Portfolio.find(params[:id])     
+    @portfolio = Portfolio.find(params[:id])
     @portfolio.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.' }
