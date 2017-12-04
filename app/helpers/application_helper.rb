@@ -16,5 +16,9 @@ module ApplicationHelper
     end
   end
 
+  def copyright_generator
+    DevcampViewTool::Renderer.copyright 'Juarez Cesar', 'All right reserved'
+  end
+
 end
 
