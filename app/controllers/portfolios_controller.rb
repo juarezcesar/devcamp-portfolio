@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout 'portfolio'
 
   def index
@@ -25,11 +26,9 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio = Portfolio.find(params[:id])
   end
 
   def update
-    @portfolio = Portfolio.find(params[:id])
 
     respond_to do |format|
       if @portfolio.update(portfolio_params)
@@ -41,11 +40,10 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-     @portfolio = Portfolio.find(params[:id])
+    binding.pry
   end
 
   def destroy
-    @portfolio = Portfolio.find(params[:id])
     @portfolio.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.' }
@@ -62,5 +60,8 @@ class PortfoliosController < ApplicationController
                                      )
   end
 
+  def set_portfolio_item
+    @portfolio = Portfolio.find(params[:id])
+  end
 
 end
